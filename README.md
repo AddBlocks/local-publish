@@ -1,6 +1,6 @@
 # Local Publish — Publicar webapps locales en Internet
 
-Herramienta **independiente** para cualquier proyecto en `C:\CLAUDE` (ScrapIt, Vite, Django, etc.).
+Herramienta **independiente** para cualquier proyecto en `C:\` (ScrapIt, Vite, Django, etc.).
 
 Crea un **túnel público** con [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/) (`cloudflared`):
 - Gratis
@@ -15,14 +15,14 @@ Crea un **túnel público** con [Cloudflare Tunnel](https://developers.cloudflar
 1. Asegúrate de que tu app local esté corriendo (`npm run dev`, etc.)
 2. Doble clic en:
    ```
-   C:\CLAUDE\tools\local-publish\publish-local.bat
+   C:\<ruta-a-directorio-clonado>\local-publish\publish-local.bat
    ```
 3. Escribe la URL (ej. `http://localhost:3000` o solo `3000`)
 4. Copia la URL pública que aparece y compártela
 
 ### Opción B — Terminal
 ```bat
-cd C:\CLAUDE\tools\local-publish
+cd C:\<ruta-a-directorio-clonado>\local-publish
 publish.cmd http://localhost:3000
 ```
 
@@ -38,13 +38,13 @@ publish.cmd http://localhost:3000 --open
 
 PowerShell directo:
 ```powershell
-cd C:\CLAUDE\tools\local-publish
+cd C:\<ruta-a-directorio-clonado>\local-publish
 .\Publish-Local.ps1 http://localhost:3000 -OpenBrowser
 ```
 
 ---
 
-## Ejemplos por proyecto (C:\CLAUDE)
+## Ejemplos por proyecto (C:\Proy)
 
 | Proyecto | Comando típico local | Publicar con |
 |----------|----------------------|--------------|
@@ -70,8 +70,8 @@ cd C:\CLAUDE\tools\local-publish
 ```powershell
 $Wsh = New-Object -ComObject WScript.Shell
 $Shortcut = $Wsh.CreateShortcut("$env:USERPROFILE\Desktop\Local Publish.lnk")
-$Shortcut.TargetPath = "C:\CLAUDE\tools\local-publish\publish-local.bat"
-$Shortcut.WorkingDirectory = "C:\CLAUDE\tools\local-publish"
+$Shortcut.TargetPath = "C:\<ruta-a-directorio-clonado>\local-publish\publish-local.bat"
+$Shortcut.WorkingDirectory = "C:\<ruta-a-directorio-clonado>\local-publish"
 $Shortcut.Description = "Publicar webapp local en Internet"
 $Shortcut.Save()
 ```
@@ -104,7 +104,7 @@ Arranca primero la app (`npm run dev` en el proyecto).
 Ya se lanza con `-ExecutionPolicy Bypass` desde el `.bat`.
 
 **Firewall / antivirus**  
-Permite `cloudflared.exe` en `C:\CLAUDE\tools\local-publish\bin\`.
+Permite `cloudflared.exe` en `C:\<ruta-a-directorio-clonado>\local-publish\bin\`.
 
 **Quiero un dominio fijo**  
 Eso requiere cuenta Cloudflare y un túnel nombrado (no quick tunnel). Esta herramienta usa el modo rápido gratuito.
